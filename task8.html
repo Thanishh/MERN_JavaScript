@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Animation</title>
+  <style>
+    .image-container {
+      display: flex;
+    }
+    .image {
+      width: 300px;
+      height: 300px;
+      transition: transform 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Animation</h1>
+  <div class="image-container">
+    <img id="image1" class="image" src="1.jpg" alt="Image 1">
+    <img id="image2" class="image" src="2.jpg" alt="Image 2">
+  </div>
+  <br><br>
+  <button id="startButton">Start</button>
+  <button id="stopButton">Stop</button>
+
+  <script>
+    var images = document.querySelectorAll('.image');
+    var intervalId;
+
+    document.getElementById("startButton").addEventListener("click", function() {
+      intervalId = setInterval(rotateImages, 500); // Adjust the interval duration as needed
+    });
+
+    document.getElementById("stopButton").addEventListener("click", function() {
+      clearInterval(intervalId);
+    });
+
+    function rotateImages() {
+      images.forEach(function(image) {
+        image.style.transform = "rotate(10deg)"; // Adjust the rotation angle as needed
+      });
+    }
+  </script>
+</body>
+</html>
